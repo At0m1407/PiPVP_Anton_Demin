@@ -1,0 +1,107 @@
+import React from "react";
+
+// Проверочная работа №1
+// Задание №1 
+
+function Profile() {
+  return (
+    <img
+      src="https://i.imgur.com/lICfvbD.jpg"
+      alt="Aklilu Lemma"
+    />
+  );
+}
+
+
+export default Profile;
+
+
+// Задание №2 Для исправления оператора return в Node.js вам нужно заключить JSX-элемент в круглые скобки.  
+// JSX-элементы должны быть внутри парных круглых скобок при возврате из функции в Node.js.
+
+export default function Profile() {
+  return (
+    <img src="https://i.imgur.com/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />
+  );
+}
+
+// Задание №3 В Node.js, когда вы используете JSX, имена компонентов должны начинаться с заглавной буквы
+
+function Profile() {
+  return (
+    <img
+      src="https://i.imgur.com/QIrZWGIs.jpg"
+      alt="Alan L. Hart"
+    />
+  );
+}
+
+export default function Gallery() {
+  return (
+    <section>
+      <h1>Amazing scientists</h1>
+      <Profile />
+      <Profile />
+      <Profile />
+    </section>
+  );
+}
+
+
+// Задание №5 Ошибку "Objects are not valid as a React child" можно исправить, приведя объект person к строке для отображения его в компоненте.
+// В этом коде мы обновили строку {person} на {person.name}, чтобы выводить только имя вместо объекта person.
+
+const person = {
+  name: 'Брендан Эйх',
+  theme: {
+    backgroundColor: 'black',
+    color: 'pink'
+  }
+};
+
+export default function TodoList() {
+  return (
+    <div style={person.theme}>
+      <h1>{person.name} – создатель языка программирования JS</h1>
+      <img
+        className="avatar"
+        src="https://i.imgur.com/7vQD0fPs.jpg"
+        alt="Gregorio Y. Zara"
+      />
+      <ul>
+        <li>Improve the videophone</li>
+        <li>Prepare aeronautics lectures</li>
+        <li>Work on the alcohol-fuelled engine</li>
+      </ul>
+    </div>
+  );
+}
+
+// Задание №6 Теперь URL-адрес изображения хранится в поле avatarUrl объекта person и использован в качестве значения атрибута src для тега img.
+*/
+const person = {
+  name: 'Gregorio Y. Zara',
+  avatarUrl: 'https://i.imgur.com/7vQD0fPs.jpg',
+  theme: {
+    backgroundColor: 'black',
+    color: 'pink'
+  }
+};
+
+export default function TodoList() {
+  return (
+    <div style={person.theme}>
+      <h1>{person.name}'s Todos</h1>
+      <img
+        className="avatar"
+        src={person.avatarUrl}
+        alt={person.name}
+      />
+      <ul>
+        <li>Improve the videophone</li>
+        <li>Prepare aeronautics lectures</li>
+        <li>Work on the alcohol-fuelled engine</li>
+      </ul>
+    </div>
+  );
+}
